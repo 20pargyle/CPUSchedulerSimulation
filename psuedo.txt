@@ -1,0 +1,70 @@
+public SchedulerFCFS (Logger) {
+    Logger log = 
+}
+public void notifyNewProcess(Process p) {
+    // p is a new process that needs to be scheduled
+    // place p in queue according to the scheduling algorithm
+
+}
+public Process update(Process cpu) {
+    // reevaluate scheduling. Now that something is done, do we need to resort?
+    // if cpu == null, then there is currently no process. start a new one
+    // ie: run the next process in the queue
+}
+
+FCFS {
+    notifyNewProcess {
+        add to the queue in the order they came. First to come is first in the queue
+    }
+
+    update {
+        if burst is done and there is still time left, put cpu back in the queue
+
+        if execution is complete or incoming process is null, return the next process in the queue.
+    }
+
+}
+
+SJF {
+    notifyNewProcess {
+        the smallest CPU burst is first. Second-smallest is second.
+        organize according to burst time 
+    }
+
+    update {
+        if nothing is running, schedule the next process (the one with the shortest burst)
+    }
+}
+
+STRF (shortest time remaining first) {
+    notifyNewProcess {
+        place in according to the remaining time of p
+    }
+
+    update {
+        if no current process {
+            add one
+        }
+        if current process burst complete {
+            log message
+            calculate shortest
+        }
+        if current process execution complete {
+            log message
+            calculate shortest
+        }
+        
+
+        return shortest
+    }
+}
+
+Priority {
+    // https://howtodoinjava.com/java/collections/java-priorityqueue/
+    notifyNewProcess {
+        placed in the queue according to priority (new process goes second in tie)
+    }
+    update {
+
+    }
+}
