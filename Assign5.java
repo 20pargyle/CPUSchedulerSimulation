@@ -72,7 +72,6 @@ public class Assign5 {
         processes.add(new Process("P2", 1, 4, 4));
         processes.add(new Process("P3", 2, 9, 9));
         processes.add(new Process("P4", 3, 5, 5));
-        processes.add(new Process("PLoooong", 3, 5, 60));
 
         System.out.println("Starting Shortest Remaining Time First CPU scheduling simulation");
         Scheduler scheduler = new SchedulerSRTF(platform);
