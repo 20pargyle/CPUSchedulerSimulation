@@ -54,7 +54,6 @@ public class SchedulerSRTF extends SchedulerBase implements Scheduler {
             else { return null; }
         }
 
-
         if (queue.peek() == null || cpu.getRemainingBurst() <= queue.peek().getRemainingBurst()){
             return cpu;
         }
@@ -71,13 +70,7 @@ public class SchedulerSRTF extends SchedulerBase implements Scheduler {
         // 2 approaches:
         //      1) compare cpu to the next shortest item
         //          pros: we still have a reference to the previously run item, list doesn't have to be resorted
-        //          cons: uuuuh I don't think there are any
+        //          cons: none
         //      2) place cpu back in the queue, sort, and pull out the shortest
         //          pros: easy to find shortest
         //          cons: have to re-sort the list here in update(), lose reference to original
-
-
-        //                  | burstComplete   | executionComplete | both  | none  |
-        // queue.add(cpu)   |    yes          |    no             | no    | yes   |
-        // contextSwitch++  |    yes          |    yes            | no    | no    |
-        // then sort queue and return head
