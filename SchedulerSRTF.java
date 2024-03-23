@@ -61,6 +61,7 @@ public class SchedulerSRTF extends SchedulerBase implements Scheduler {
             queue.add(cpu);
             myLogger.log("Preemptively removed: " + cpu.getName());
             Process nextProcess = queue.poll();
+            myLogger.log("Scheduled: " + nextProcess.getName());
             contextSwitches = contextSwitches + 2;
             return nextProcess;
         }
